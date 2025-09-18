@@ -156,12 +156,14 @@
 			isLoading = false;
 			if (!errorMessage) {
 				npubInput = '';
+				resetUrl();
 			}
 		}
 	}
 
 	function removeProfile(index: number) {
 		addedProfiles = addedProfiles.filter((_, i) => i !== index);
+		resetUrl();
 	}
 
 	function generateUrl() {
@@ -176,6 +178,10 @@
 		generatedUrl = `${baseUrl}?s=${npubList}`;
 	}
 
+	function resetUrl() {
+		generatedUrl = '';
+	}
+
 	function copyToClipboard() {
 		navigator.clipboard.writeText(generatedUrl);
 	}
@@ -188,20 +194,20 @@
 </script>
 
 <svelte:head>
-	<title>Create your Nstart personalized link</title>
+	<title>Create your Nstart personalized URL</title>
 </svelte:head>
 
 <BasicLayout>
-	<div slot="content" class="mx-auto w-full max-w-2xl">
+	<div slot="content" class="mx-auto mt-8 w-full max-w-2xl">
 		<div class="mb-8 animate-fade2 border-l-[0.9rem] border-accent pl-4">
 			<h1 class="text-[2.5rem] font-bold leading-[1em] text-accent dark:text-accent sm:text-[3rem]">
-				Create your Nstart link
+				Create your Nstart URL
 			</h1>
 		</div>
-		<div class="mb-8 animate-fade1 text-[1.2rem] leading-7 text-neutral-700 dark:text-neutral-100">
+		<div class="mb-8 animate-fade1 text-neutral-700 dark:text-neutral-100">
 			<p>
-				With this wizard you can get a personalized Nstart link that allows other users to create an
-				account, with some custom options and a personalized final following list
+				This page allows you to obtain a personalized Nstart link that enables other users to create
+				an account, with a preset language and a personalized list of followers
 			</p>
 		</div>
 
@@ -209,14 +215,14 @@
 		<div class="mb-6 animate-fade1">
 			<label
 				for="language-select"
-				class="mb-2 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300"
+				class="mb-2 block font-medium text-neutral-700 dark:text-neutral-300"
 			>
-				Language
+				Wizard language
 			</label>
 			<select
 				id="language-select"
 				bind:value={selectedLanguage}
-				class="w-full rounded-md border border-neutral-300 bg-white px-4 py-3 text-[1.1rem] text-neutral-700 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+				class="w-full rounded border border-neutral-300 bg-white px-4 py-3 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
 			>
 				{#each availableLanguages as language}
 					<option value={language.code}>{language.name}</option>
@@ -224,46 +230,16 @@
 			</select>
 		</div>
 
-		<!-- Npub Input -->
-		<div class="mb-6 animate-fade1">
-			<label
-				for="npub-input"
-				class="mb-2 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300"
-			>
-				Add npub or NIP-05 address
-			</label>
-			<div class="flex gap-2">
-				<input
-					id="npub-input"
-					type="text"
-					bind:value={npubInput}
-					on:keypress={handleKeyPress}
-					placeholder="npub1... or user@domain.com"
-					class="flex-1 rounded-md border border-neutral-300 bg-white px-4 py-3 text-[1.1rem] text-neutral-700 placeholder-neutral-500 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
-				/>
-				<button
-					on:click={addNpub}
-					disabled={isLoading || !npubInput.trim()}
-					class="hover:bg-accent/90 rounded-md bg-accent px-6 py-3 text-[1.1rem] text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-400"
-				>
-					{isLoading ? 'Adding...' : 'Add'}
-				</button>
-			</div>
-			{#if errorMessage}
-				<p class="mt-2 text-sm text-red-500">{errorMessage}</p>
-			{/if}
-		</div>
-
 		<!-- Added Profiles List -->
 		{#if addedProfiles.length > 0}
 			<div class="mb-6 animate-fade1">
 				<div class="mb-3 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300">
-					Added profiles ({addedProfiles.length})
+					Custom follows list ({addedProfiles.length})
 				</div>
 				<div class="space-y-2">
 					{#each addedProfiles as profile, index}
 						<div
-							class="flex items-center gap-3 rounded-md border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-800"
+							class="flex items-center gap-3 rounded border-2 border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-800"
 						>
 							<img
 								src={profile.picture || '/icons/default-avatar.svg'}
@@ -277,14 +253,14 @@
 									{profile.name || (profile.nip05 ? profile.nip05 : 'Unknown')}
 								</div>
 								<div class="truncate text-sm text-neutral-500 dark:text-neutral-400">
-									{profile.nip05 ? profile.nip05 : profile.npub}
+									{profile.nip05
+										? profile.nip05
+										: profile.npub.substring(0, 8) +
+											'...' +
+											profile.npub.substring(profile.npub.length - 8)}
 								</div>
 							</div>
-							<button
-								on:click={() => removeProfile(index)}
-								class="p-1 text-red-500 hover:text-red-700"
-								title="Remove"
-							>
+							<button on:click={() => removeProfile(index)} class="p-1 text-accent" title="Remove">
 								<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path
 										stroke-linecap="round"
@@ -300,28 +276,64 @@
 			</div>
 		{/if}
 
-		<!-- Generate Button -->
-		<div class="mb-6 animate-fade1">
-			<button
-				on:click={generateUrl}
-				class="hover:bg-accent/90 inline-flex w-full items-center justify-center rounded bg-accent px-8 py-4 text-[1.4rem] text-white transition-colors"
+		<!-- Npub Input -->
+		<div class="mb-10 animate-fade1">
+			<label
+				for="npub-input"
+				class="mb-2 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300"
 			>
-				Create link
-				<svg
-					class="ml-2 h-5 w-5"
-					viewBox="0 0 32 29"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
+				Contact to add to the following list
+			</label>
+			<div class="flex flex-col gap-2 sm:flex-row">
+				<input
+					id="npub-input"
+					type="text"
+					bind:value={npubInput}
+					on:keypress={handleKeyPress}
+					placeholder="npub1... or user@domain.com"
+					class="flex-1 rounded border-2 border-neutral-300 bg-white px-4 py-3 text-[1.1rem] text-neutral-700 placeholder-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+				/>
+				<button
+					on:click={addNpub}
+					disabled={isLoading || !npubInput.trim()}
+					class="hover:bg-accent/90 rounded bg-accent px-6 py-3 text-[1.3rem] text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-800 disabled:dark:bg-neutral-600"
 				>
-					<path
-						fill="currentColor"
-						fill-rule="evenodd"
-						clip-rule="evenodd"
-						d="M16.0695 1.17273C16.7448 0.497436 17.8397 0.497436 18.515 1.17273L30.6195 13.2773C31.2948 13.9526 31.2948 15.0475 30.6195 15.7228L18.515 27.8274C17.8397 28.5026 16.7448 28.5026 16.0695 27.8274C15.3942 27.1521 15.3942 26.0571 16.0695 25.3819L25.2221 16.2293H1.72922C0.774208 16.2293 0 15.4551 0 14.5001C0 13.545 0.774208 12.7708 1.72922 12.7708H25.2221L16.0695 3.61823C15.3942 2.94292 15.3942 1.84805 16.0695 1.17273Z"
-					/>
-				</svg>
-			</button>
+					{isLoading ? 'Adding...' : 'Add contact'}
+				</button>
+			</div>
+			{#if errorMessage}
+				<p class="mt-2 text-sm text-accent">{errorMessage}</p>
+			{/if}
 		</div>
+
+		<!-- Generate Button -->
+		{#if addedProfiles.length > 0}
+			{#if generatedUrl == ''}
+				<div class="mb-6 animate-fade1">
+					<button
+						on:click={generateUrl}
+						class="hover:bg-accent/90 inline-flex w-full items-center justify-center rounded bg-accent px-8 py-4 text-[1.3rem] text-white transition-colors"
+					>
+						Create link
+						<svg
+							class="ml-2 h-5 w-5"
+							viewBox="0 0 32 29"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								fill="currentColor"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M16.0695 1.17273C16.7448 0.497436 17.8397 0.497436 18.515 1.17273L30.6195 13.2773C31.2948 13.9526 31.2948 15.0475 30.6195 15.7228L18.515 27.8274C17.8397 28.5026 16.7448 28.5026 16.0695 27.8274C15.3942 27.1521 15.3942 26.0571 16.0695 25.3819L25.2221 16.2293H1.72922C0.774208 16.2293 0 15.4551 0 14.5001C0 13.545 0.774208 12.7708 1.72922 12.7708H25.2221L16.0695 3.61823C15.3942 2.94292 15.3942 1.84805 16.0695 1.17273Z"
+							/>
+						</svg>
+					</button>
+				</div>
+			{:else}
+				<div class="mb-6 border-t-4 border-t-accent"></div>
+			{/if}
+		{/if}
 
 		<!-- Generated URL -->
 		{#if generatedUrl}
@@ -330,29 +342,32 @@
 					for="generated-url"
 					class="mb-2 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300"
 				>
-					Your personalized link
+					Your personalized Nstart URL
 				</label>
-				<div class="flex gap-2">
+				<div class="flex flex-col gap-2 sm:flex-row">
 					<input
 						id="generated-url"
 						type="text"
 						value={generatedUrl}
 						readonly
-						class="flex-1 select-all rounded-md border border-neutral-300 bg-neutral-50 px-4 py-3 text-[1rem] text-neutral-700 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+						class="flex-1 select-all rounded border-2 border-neutral-300 bg-neutral-50 px-4 py-3 text-[1rem] text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
 					/>
 					<button
 						on:click={copyToClipboard}
-						class="rounded-md bg-neutral-600 px-4 py-3 text-[1rem] text-white transition-colors hover:bg-neutral-700"
+						class="inline-flex items-center justify-center rounded bg-accent px-8 py-3 text-[1.3rem] text-white"
 						title="Copy to clipboard"
 					>
-						<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-							/>
-						</svg>
+						Copy URL
+						<div class="ml-4 mr-2">
+							<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+								/>
+							</svg>
+						</div>
 					</button>
 				</div>
 			</div>
