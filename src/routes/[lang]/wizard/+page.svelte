@@ -44,8 +44,13 @@
 	}
 
 	function isValidNip05(input: string): boolean {
-		const nip05Regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		return nip05Regex.test(input);
+		const fullNip05Regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+		const domainWithAtRegex = /^@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+		const domainOnlyRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+		return (
+			fullNip05Regex.test(input) || domainWithAtRegex.test(input) || domainOnlyRegex.test(input)
+		);
 	}
 
 	async function fetchProfile(npub: string): Promise<Profile | null> {
@@ -88,7 +93,18 @@
 
 	async function resolveNip05(nip05: string): Promise<string | null> {
 		try {
-			const [name, domain] = nip05.split('@');
+			let normalizedNip05 = nip05;
+
+			// Normalize different formats to standard NIP-05
+			if (nip05.startsWith('@')) {
+				// "@domain.tld" -> "_@domain.tld"
+				normalizedNip05 = '_' + nip05;
+			} else if (!nip05.includes('@')) {
+				// "domain.tld" -> "_@domain.tld"
+				normalizedNip05 = '_@' + nip05;
+			}
+
+			const [name, domain] = normalizedNip05.split('@');
 			const url = `https://${domain}/.well-known/nostr.json?name=${name}`;
 
 			const response = await fetch(url);
@@ -290,7 +306,7 @@
 					type="text"
 					bind:value={npubInput}
 					on:keypress={handleKeyPress}
-					placeholder="npub1... or user@domain.com"
+					placeholder="npub1..., user@domain.com"
 					class="flex-1 rounded border-2 border-neutral-300 bg-white px-4 py-3 text-[1.1rem] text-neutral-700 placeholder-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
 				/>
 				<button
