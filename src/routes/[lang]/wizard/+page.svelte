@@ -143,13 +143,13 @@
 						if (!addedProfiles.some((p) => p.npub === profile.npub)) {
 							addedProfiles = [...addedProfiles, profile];
 						} else {
-							errorMessage = 'This profile has already been added';
+							errorMessage = t('wizard.error1');
 						}
 					} else {
-						errorMessage = 'Failed to fetch profile information';
+						errorMessage = t('wizard.error2');
 					}
 				} else {
-					errorMessage = 'Could not resolve NIP-05 address';
+					errorMessage = t('wizard.error3');
 				}
 			} else if (isValidNpub(npubInput.trim())) {
 				const profile = await fetchProfile(npubToAdd);
@@ -158,16 +158,16 @@
 					if (!addedProfiles.some((p) => p.npub === profile.npub)) {
 						addedProfiles = [...addedProfiles, profile];
 					} else {
-						errorMessage = 'This profile has already been added';
+						errorMessage = t('wizard.error1');
 					}
 				} else {
-					errorMessage = 'Failed to fetch profile information';
+					errorMessage = t('wizard.error2');
 				}
 			} else {
-				errorMessage = 'Please enter a valid npub or NIP-05 address';
+				errorMessage = t('wizard.error4');
 			}
 		} catch (error) {
-			errorMessage = 'Invalid npub or NIP-05 address';
+			errorMessage = t('wizard.error5');
 		} finally {
 			isLoading = false;
 			if (!errorMessage) {
@@ -210,20 +210,19 @@
 </script>
 
 <svelte:head>
-	<title>Create your Nstart personalized URL</title>
+	<title>Create your Nstart URL</title>
 </svelte:head>
 
 <BasicLayout>
 	<div slot="content" class="mx-auto mt-8 w-full max-w-2xl">
 		<div class="mb-8 animate-fade2 border-l-[0.9rem] border-accent pl-4">
 			<h1 class="text-[2.5rem] font-bold leading-[1em] text-accent dark:text-accent sm:text-[3rem]">
-				Create your Nstart URL
+				{t('wizard.title')}
 			</h1>
 		</div>
 		<div class="mb-8 animate-fade1 text-neutral-700 dark:text-neutral-100">
 			<p>
-				This page allows you to obtain a personalized Nstart link that enables other users to create
-				an account, with a preset language and a personalized list of followers
+				{t('wizard.intro')}
 			</p>
 		</div>
 
@@ -233,7 +232,7 @@
 				for="language-select"
 				class="mb-2 block font-medium text-neutral-700 dark:text-neutral-300"
 			>
-				Wizard language
+				{t('wizard.label_lang')}
 			</label>
 			<select
 				id="language-select"
@@ -250,7 +249,7 @@
 		{#if addedProfiles.length > 0}
 			<div class="mb-6 animate-fade1">
 				<div class="mb-3 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300">
-					Custom follows list ({addedProfiles.length})
+					{t('wizard.label_list')} ({addedProfiles.length})
 				</div>
 				<div class="space-y-2">
 					{#each addedProfiles as profile, index}
@@ -298,7 +297,7 @@
 				for="npub-input"
 				class="mb-2 block text-[1.1rem] font-medium text-neutral-700 dark:text-neutral-300"
 			>
-				Contact to add to the following list
+				{t('wizard.label_contact')}
 			</label>
 			<div class="flex flex-col gap-2 sm:flex-row">
 				<input
@@ -314,7 +313,7 @@
 					disabled={isLoading || !npubInput.trim()}
 					class="hover:bg-accent/90 rounded bg-accent px-6 py-3 text-[1.3rem] text-white transition-colors disabled:cursor-not-allowed disabled:bg-neutral-800 disabled:dark:bg-neutral-600"
 				>
-					{isLoading ? 'Adding...' : 'Add contact'}
+					{isLoading ? t('wizard.button_working') : t('wizard.button_contact')}
 				</button>
 			</div>
 			{#if errorMessage}

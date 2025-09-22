@@ -136,5 +136,23 @@
 	"confirmation_email": {
 		"subject": "Il tuo account Nostr",
 		"body": "Ciao!\n\nQuesta è la tua npub Nostr:\n${1}\n\nE questa è la tua chiave Nostr criptata::\n${2}\n\nRicordarti di salvare la password scelta in un luogo sicuro!\n\nBenvenuto su Nostr :)\n\nPS: Questo indirizzo email non accetta risposte, per richiedere supporto ti preghiamo di taggare https://njump.me/dtonon.com or https://njump.me/fiatjaf.com su Nostr"
+	},
+
+	"wizard": {
+		"title": "Crea il tuo URL Nstart",
+		"intro": "Questa pagina ti consente di ottenere un link personalizzato di Nstart che permette ad altri utenti di creare un account, con una lingua preimpostata e un elenco personalizzato di seguiti",
+		"label_lang": "Lingua del wizard",
+		"label_contact": "Contatto da aggiungere alla lista dei seguiti",
+		"button_contact": "Aggiungi contatto",
+		"button_working": "Cercando...",
+		"label_list": "Lista personalizzata dei seguiti",
+		"button_link": "Crea link",
+		"link_intro": "Il tuo URL personalizzato di Nstart",
+		"button_copy": "Copia URL",
+		"error1": "Questo profilo è già stato aggiunto",
+		"error2": "Impossibile recuperare le informazioni del profilo",
+		"error3": "Impossibile risolvere l'indirizzo NIP-05",
+		"error4": "Inserisci un npub o indirizzo NIP-05 valido",
+		"error5": "npub o indirizzo NIP-05 non valido"
 	}
 }
