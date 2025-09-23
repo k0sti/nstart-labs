@@ -41,10 +41,10 @@
 		console.log('currentLanguage =>', currentLanguage);
 
 		// Handle /wizard redirect to default language
-		if (window.location.pathname === '/wizard') {
-			goto(`/${$currentLanguage}/wizard`);
-		} else {
+		if (window.location.pathname === '/') {
 			goto(`/${$currentLanguage}/${queryString}`);
+		} else if (window.location.pathname === '/wizard') {
+			goto(`/${$currentLanguage}/wizard`);
 		}
 	});
 </script>

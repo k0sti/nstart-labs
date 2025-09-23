@@ -15,7 +15,8 @@
 		"button_start": "Aan de slag",
 		"footer1": "Wil je eerst meer weten over Nostr?",
 		"footer2": "Lees dan hier een Engelstalige introductie",
-		"footer3": "De broncode van deze tool is <a {$1}>vrij beschikbaar</a>"
+		"footer3": "De broncode van deze tool is <a {$1}>vrij beschikbaar</a>",
+		"footer4": "Wil je je vrienden uitnodigen? Maak je <a {$1}>gepersonaliseerde Nstart-URL</a>"
 	},
 
 	"yourself": {

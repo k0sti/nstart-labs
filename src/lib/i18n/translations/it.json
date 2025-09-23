@@ -16,7 +16,8 @@
 		"button_start": "Iniziamo",
 		"footer1": "Prima di proseguire vorresti saperne di più su Nostr?",
 		"footer2": "Leggi una breve introduzione",
-		"footer3": "Il codice sorgente di questo servizio è <a {$1}>gratuito e aperto</a>"
+		"footer3": "Il codice sorgente di questo servizio è <a {$1}>gratuito e aperto</a>",
+		"footer4": "Vuoi invitare i tuoi amici? Crea il tuo <a {$1}>URL personalizzato di Nstart</a>"
 	},
 
 	"yourself": {

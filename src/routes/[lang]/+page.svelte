@@ -223,7 +223,7 @@
 							>
 								<button
 									class="inline-flex items-center rounded bg-accent px-10 py-4 text-[1.8rem] text-white"
-									on:click={() => goto('/en/yourself')}
+									on:click={() => goto(`/${$currentLanguage}/yourself`)}
 								>
 									{t('home.button_start')}
 									<img src="/icons/arrow-right.svg" alt="Icon" class="ml-4 mr-2 h-7 w-7" />
@@ -243,13 +243,21 @@
 						</div>
 					</div>
 					<div
-						class="mt-10 animate-fade1 text-center text-sm text-neutral-400 opacity-0 dark:text-neutral-500 sm:mt-4"
+						class="mt-10 animate-fade1 px-8 text-center text-sm leading-4 text-neutral-400 opacity-0 dark:text-neutral-500 sm:mt-4"
 						style="animation-delay: 1.2s;"
 					>
-						{@html t(
-							'home.footer3',
-							'href="https://github.com/dtonon/nstart" target="_blank" class="underline"'
-						)}
+						<div class="mb-4">
+							{@html t(
+								'home.footer4',
+								`href="/${$currentLanguage}/wizard" target="_blank" class="underline"`
+							)}
+						</div>
+						<div>
+							{@html t(
+								'home.footer3',
+								'href="https://github.com/dtonon/nstart" target="_blank" class="underline"'
+							)}
+						</div>
 					</div>
 					<!-- /content -->
 				</div>

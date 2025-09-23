@@ -15,7 +15,8 @@
 		"button_start": "Los geht's",
 		"footer1": "Möchtest du zuerst mehr über Nostr erfahren?",
 		"footer2": "Lies eine kurze Einführung",
-		"footer3": "Der Quellcode für diesen Dienst ist <a {$1}>frei und offen</a>"
+		"footer3": "Der Quellcode für diesen Dienst ist <a {$1}>frei und offen</a>",
+		"footer4": "Möchtest du deine Freunde einladen? Erstelle deine <a {$1}>personalisierte Nstart-URL</a>"
 	},
 
 	"yourself": {
