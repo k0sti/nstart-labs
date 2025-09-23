@@ -15,7 +15,8 @@
 		"button_start": "Aan de slag",
 		"footer1": "Wil je eerst meer weten over Nostr?",
 		"footer2": "Lees dan hier een Engelstalige introductie",
-		"footer3": "De broncode van deze tool is <a {$1}>vrij beschikbaar</a>"
+		"footer3": "De broncode van deze tool is <a {$1}>vrij beschikbaar</a>",
+		"footer4": "Wil je je vrienden uitnodigen? Maak je <a {$1}>gepersonaliseerde Nstart-URL</a>"
 	},
 
 	"yourself": {
@@ -135,5 +136,24 @@
 	"confirmation_email": {
 		"subject": "Jouw Nostr-account",
 		"body": "Hallo!\n\nDit is je Nostr npub:\n{$1}\n\nEn dit is je privésleutel:\n{$2}\n\nVergeet niet het gekozen wachtwoord op een veilige plek te bewaren!\n\nWelkom bij Nostr :)\n\nPS: Dit e-mailadres accepteert geen reacties. Om ondersteuning aan te vragen, tag https://njump.me/dtonon.com of https://njump.me/fiatjaf.com op Nostr"
+	},
+
+	"wizard": {
+		"title": "Maak je Nstart-URL",
+		"intro": "Deze pagina stelt je in staat om een gepersonaliseerde Nstart-link te verkrijgen waarmee andere gebruikers een account kunnen aanmaken, met een vooraf ingestelde taal en een gepersonaliseerde volglijst",
+		"label_lang": "Wizard-taal",
+		"label_contact": "Contact toevoegen aan volglijst",
+		"button_contact": "Contact toevoegen",
+		"button_working": "Zoeken...",
+		"label_list": "Aangepaste volglijst",
+		"button_link": "Link maken",
+		"link_intro": "Je gepersonaliseerde Nstart-URL",
+		"button_copy": "URL kopiëren",
+		"button_copied": "Gekopieerd!",
+		"error1": "Dit profiel is al toegevoegd",
+		"error2": "Kon profielinformatie niet ophalen",
+		"error3": "Kon NIP-05-adres niet oplossen",
+		"error4": "Voer een geldig npub- of NIP-05-adres in",
+		"error5": "Ongeldig npub- of NIP-05-adres"
 	}
 }

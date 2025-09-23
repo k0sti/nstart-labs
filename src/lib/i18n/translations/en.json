@@ -15,7 +15,8 @@
 		"button_start": "Let's Start",
 		"footer1": "Would you like to know more about Nostr first?",
 		"footer2": "Read a quick introduction",
-		"footer3": "The source code for this service is <a {$1}>free and open</a>"
+		"footer3": "The source code for this service is <a {$1}>free and open</a>",
+		"footer4": "Do you want to invite your friends? Create your <a {$1}>personalized Nstart URL</a>"
 	},
 
 	"yourself": {
@@ -135,5 +136,24 @@
 	"confirmation_email": {
 		"subject": "Your Nostr account",
 		"body": "Hello!\n\nThis is your Nostr npub:\n{$1}\n\nAnd this is your encrypted Nostr key:\n{$2}\n\nRemember to save the chosen password in a safe place!\n\nWelcome to Nostr :)\n\nPS: This email address does not accept replies, to request support please tag https://njump.me/dtonon.com or https://njump.me/fiatjaf.com on Nostr"
+	},
+
+	"wizard": {
+		"title": "Create your Nstart URL",
+		"intro": "This page allows you to obtain a personalized Nstart link that enables other users to create an account, with a preset language and a personalized list of followers",
+		"label_lang": "Wizard language",
+		"label_contact": "Contact to add to the following list",
+		"button_contact": "Add contact",
+		"button_working": "Searching...",
+		"label_list": "Custom follows list",
+		"button_link": "Create link",
+		"link_intro": "Your personalized Nstart URL",
+		"button_copy": "Copy URL",
+		"button_copied": "Copied!",
+		"error1": "This profile has already been added",
+		"error2": "Failed to fetch profile information",
+		"error3": "Could not resolve NIP-05 address",
+		"error4": "Please enter a valid npub or NIP-05 address",
+		"error5": "Invalid npub or NIP-05 address"
 	}
 }

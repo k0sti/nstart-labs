@@ -15,7 +15,8 @@
 		"button_start": "Los geht's",
 		"footer1": "Möchtest du zuerst mehr über Nostr erfahren?",
 		"footer2": "Lies eine kurze Einführung",
-		"footer3": "Der Quellcode für diesen Dienst ist <a {$1}>frei und offen</a>"
+		"footer3": "Der Quellcode für diesen Dienst ist <a {$1}>frei und offen</a>",
+		"footer4": "Möchtest du deine Freunde einladen? Erstelle deine <a {$1}>personalisierte Nstart-URL</a>"
 	},
 
 	"yourself": {
@@ -135,5 +136,24 @@
 	"confirmation_email": {
 		"subject": "Dein Nostr-Konto",
 		"body": "Hallo!\n\nDies ist dein Nostr npub:\n{$1}\n\nUnd dies ist dein verschlüsselter Nostr-Schlüssel:\n{$2}\n\nDenk daran, das gewählte Passwort an einem sicheren Ort zu speichern!\n\nWillkommen bei Nostr :)\n\nPS: Diese E-Mail-Adresse akzeptiert keine Antworten. Um Support anzufordern, tagge bitte https://njump.me/dtonon.com oder https://njump.me/fiatjaf.com auf Nostr"
+	},
+
+	"wizard": {
+		"title": "Erstelle deine Nstart-URL",
+		"intro": "Diese Seite ermöglicht es dir, einen personalisierten Nstart-Link zu erhalten, der es anderen Nutzern ermöglicht, ein Konto zu erstellen, mit einer voreingestellten Sprache und einer personalisierten Folge-Liste",
+		"label_lang": "Assistent-Sprache",
+		"label_contact": "Kontakt zur Folge-Liste hinzufügen",
+		"button_contact": "Kontakt hinzufügen",
+		"button_working": "Suche...",
+		"label_list": "Personalisierte Folge-Liste",
+		"button_link": "Link erstellen",
+		"link_intro": "Deine personalisierte Nstart-URL",
+		"button_copy": "URL kopieren",
+		"button_copied": "Kopiert!",
+		"error1": "Dieses Profil wurde bereits hinzugefügt",
+		"error2": "Fehler beim Abrufen der Profilinformationen",
+		"error3": "NIP-05-Adresse konnte nicht aufgelöst werden",
+		"error4": "Bitte gib eine gültige npub- oder NIP-05-Adresse ein",
+		"error5": "Ungültige npub- oder NIP-05-Adresse"
 	}
 }

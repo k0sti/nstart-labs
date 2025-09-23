@@ -5,7 +5,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { availableLanguages, defaultLanguage } from '$lib/i18n/config';
-	import { setLanguage } from '$lib/i18n';
+	import { setLanguage, currentLanguage } from '$lib/i18n';
 
 	onMount(() => {
 		// Skip language check for the /analytics page
@@ -29,16 +29,22 @@
 		} else if (paramLang != null && availableLanguages.find((l) => l.code === paramLang)) {
 			console.log('Set lang with al param', paramLang);
 			setLanguage(paramLang);
-			goto(`/${paramLang}/${queryString}`);
 		} else if (browserLang && availableLanguages.find((l) => l.code === browserLang)) {
 			console.log('Using browser language match:', browserLang);
 			setLanguage(browserLang);
-			goto(`/${browserLang}/${queryString}`);
 		} else {
 			// Fall back to default language if no match
 			console.log('Falling back to default language:', defaultLanguage.code);
 			setLanguage(defaultLanguage.code);
-			goto(`/${defaultLanguage.code}/${queryString}`);
+		}
+
+		console.log('currentLanguage =>', currentLanguage);
+
+		// Handle /wizard redirect to default language
+		if (window.location.pathname === '/') {
+			goto(`/${$currentLanguage}/${queryString}`);
+		} else if (window.location.pathname === '/wizard') {
+			goto(`/${$currentLanguage}/wizard`);
 		}
 	});
 </script>

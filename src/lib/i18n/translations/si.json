@@ -15,7 +15,8 @@
 		"button_start": "Pa začnimo",
 		"footer1": "Bi želeli izvedeti kaj več o Nostru, predno začnemo?",
 		"footer2": "Preberite si kratko predstavitev v angleškem jeziku",
-		"footer3": "Izvorna koda te storitve je <a {$1}>prosto dostopna in odprta</a>"
+		"footer3": "Izvorna koda te storitve je <a {$1}>prosto dostopna in odprta</a>",
+		"footer4": "Želite povabiti prijatelje? Ustvarite svoj <a {$1}>personaliziran Nstart URL</a>"
 	},
 
 	"yourself": {
@@ -135,5 +136,24 @@
 	"confirmation_email": {
 		"subject": "Vaš Nostr račun",
 		"body": "Pozdravljeni!\n\nTo je vaš Nostr npub:\n{$1}\n\nIn to je vaš šifriran Nostr ključ:\n{$2}\n\nNe pozabite shraniti izbranega gesla na varno mesto!\n\nDobrodošel na Nostru :)\n\nPS: Ta e-poštni naslov ne sprejema odgovorov. Za podporo se obrni na  https://njump.me/dtonon.com or https://njump.me/fiatjaf.com na Nostru"
+	},
+
+	"wizard": {
+		"title": "Ustvari svoj Nstart URL",
+		"intro": "Ta stran vam omogoča pridobiti personaliziran link Nstart, ki drugim uporabnikom omogoča ustvariti račun z nastavljenim jezikom in personalizirani seznam sledilcev",
+		"label_lang": "Jezik čarovnika",
+		"label_contact": "Kontakt za dodajanje v seznam sledilcev",
+		"button_contact": "Dodaj kontakt",
+		"button_working": "Iščem...",
+		"label_list": "Seznam sledilcev po meri",
+		"button_link": "Ustvari povezavo",
+		"link_intro": "Vaš personalizirani Nstart URL",
+		"button_copy": "Kopiraj URL",
+		"button_copied": "Kopirano!",
+		"error1": "Ta profil je že dodan",
+		"error2": "Pridobivanje informacij o profilu ni uspelo",
+		"error3": "NIP-05 naslova ni bilo mogoče razrešiti",
+		"error4": "Vnesite veljaven npub ali NIP-05 naslov",
+		"error5": "Neveljaven npub ali NIP-05 naslov"
 	}
 }

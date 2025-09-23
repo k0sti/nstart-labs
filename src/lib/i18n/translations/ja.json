@@ -15,7 +15,8 @@
 		"button_start": "始めましょう",
 		"footer1": "まずNostrについてもっと知りたいですか？",
 		"footer2": "簡単な紹介を読む",
-		"footer3": "このサービスのソースコードは<a {$1}>無料でオープン</a>です"
+		"footer3": "このサービスのソースコードは<a {$1}>無料でオープン</a>です",
+		"footer4": "友達を招待しませんか？あなたの<a {$1}>カスタマイズされたNstart URL</a>を作成しましょう"
 	},
 	"yourself": {
 		"title1": "自己",
@@ -127,5 +128,24 @@
 	"confirmation_email": {
 		"subject": "あなたのNostrアカウント",
 		"body": "こんにちは！\n\nこちらがあなたのNostr npubです：\n{$1}\n\nそしてこちらが暗号化されたNostr鍵です：\n{$2}\n\n選択したパスワードを安全な場所に保存することを忘れないでください！\n\nNostrへようこそ :)\n\nPS: このメールアドレスは返信を受け付けていません。サポートをリクエストするには、Nostrで https://njump.me/dtonon.com または https://njump.me/fiatjaf.com へ連絡してください。"
+	},
+
+	"wizard": {
+		"title": "Nstart URLを作成",
+		"intro": "このページでは、他のユーザーがアカウントを作成できるカスタマイズされたNstartリンクを取得できます。事前に設定された言語とカスタマイズされたフォローリスト付きです",
+		"label_lang": "ウィザードの言語",
+		"label_contact": "フォローリストに追加するコンタクト",
+		"button_contact": "コンタクトを追加",
+		"button_working": "検索中...",
+		"label_list": "カスタムフォローリスト",
+		"button_link": "リンクを作成",
+		"link_intro": "あなたのカスタマイズNstart URL",
+		"button_copy": "URLをコピー",
+		"button_copied": "コピーしました！",
+		"error1": "このプロフィールはすでに追加されています",
+		"error2": "プロフィール情報の取得に失敗しました",
+		"error3": "NIP-05アドレスを解決できませんでした",
+		"error4": "有効なnpubまたはNIP-05アドレスを入力してください",
+		"error5": "無効なnpubまたはNIP-05アドレスです"
 	}
 }

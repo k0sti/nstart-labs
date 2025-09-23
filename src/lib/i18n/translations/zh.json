@@ -15,7 +15,8 @@
 		"button_start": "开始吧！",
 		"footer1": "你想要首先了解更多有关 Nostr 的东西吗？",
 		"footer2": "阅读快速介绍",
-		"footer3": "该服务的源代码是<a {$1}>自由且开放的</a>"
+		"footer3": "该服务的源代码是<a {$1}>自由且开放的</a>",
+		"footer4": "想要邀请朋友吗？创建你的<a {$1}>个性化 Nstart 链接</a>"
 	},
 
 	"yourself": {
@@ -135,5 +136,24 @@
 	"confirmation_email": {
 		"subject": "你的 Nostr 账户",
 		"body": "你好！\n\n这是你的 Nostr npub：\n{$1}\n\n以及这是你的加密后的 Nostr 私钥：\n{$2}\n\n要记得请将输入的密码保存在安全的地方！\n\n欢迎来到 Nostr :)\n\n注：这个电子邮件地址不接受回复，如果需要帮助请在 Nostr 中联系 https://njump.me/dtonon.com 或者 https://njump.me/fiatjaf.com"
+	},
+
+	"wizard": {
+		"title": "创建你的 Nstart 链接",
+		"intro": "这个页面可以让你获取一个个性化的 Nstart 链接，允许其他用户创建账户，带有预设的语言和个性化的关注列表",
+		"label_lang": "向导语言",
+		"label_contact": "添加到关注列表的联系人",
+		"button_contact": "添加联系人",
+		"button_working": "搜索中...",
+		"label_list": "自定义关注列表",
+		"button_link": "创建链接",
+		"link_intro": "你的个性化 Nstart 链接",
+		"button_copy": "复制链接",
+		"button_copied": "已复制！",
+		"error1": "这个配置文件已经被添加",
+		"error2": "获取配置文件信息失败",
+		"error3": "无法解析 NIP-05 地址",
+		"error4": "请输入有效的 npub 或 NIP-05 地址",
+		"error5": "无效的 npub 或 NIP-05 地址"
 	}
 }
