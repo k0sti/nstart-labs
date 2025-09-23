@@ -149,6 +149,7 @@
 		"button_link": "Link maken",
 		"link_intro": "Je gepersonaliseerde Nstart-URL",
 		"button_copy": "URL kopiëren",
+		"button_copied": "Gekopieerd!",
 		"error1": "Dit profiel is al toegevoegd",
 		"error2": "Kon profielinformatie niet ophalen",
 		"error3": "Kon NIP-05-adres niet oplossen",

@@ -149,6 +149,7 @@
 		"button_link": "Link erstellen",
 		"link_intro": "Deine personalisierte Nstart-URL",
 		"button_copy": "URL kopieren",
+		"button_copied": "Kopiert!",
 		"error1": "Dieses Profil wurde bereits hinzugefügt",
 		"error2": "Fehler beim Abrufen der Profilinformationen",
 		"error3": "NIP-05-Adresse konnte nicht aufgelöst werden",

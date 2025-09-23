@@ -141,6 +141,7 @@
 		"button_link": "リンクを作成",
 		"link_intro": "あなたのカスタマイズNstart URL",
 		"button_copy": "URLをコピー",
+		"button_copied": "コピーしました！",
 		"error1": "このプロフィールはすでに追加されています",
 		"error2": "プロフィール情報の取得に失敗しました",
 		"error3": "NIP-05アドレスを解決できませんでした",

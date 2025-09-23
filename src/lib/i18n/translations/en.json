@@ -149,6 +149,7 @@
 		"button_link": "Create link",
 		"link_intro": "Your personalized Nstart URL",
 		"button_copy": "Copy URL",
+		"button_copied": "Copied!",
 		"error1": "This profile has already been added",
 		"error2": "Failed to fetch profile information",
 		"error3": "Could not resolve NIP-05 address",

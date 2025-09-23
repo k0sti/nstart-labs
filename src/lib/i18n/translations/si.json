@@ -149,6 +149,7 @@
 		"button_link": "Ustvari povezavo",
 		"link_intro": "Vaš personalizirani Nstart URL",
 		"button_copy": "Kopiraj URL",
+		"button_copied": "Kopirano!",
 		"error1": "Ta profil je že dodan",
 		"error2": "Pridobivanje informacij o profilu ni uspelo",
 		"error3": "NIP-05 naslova ni bilo mogoče razrešiti",

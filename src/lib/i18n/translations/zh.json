@@ -149,6 +149,7 @@
 		"button_link": "创建链接",
 		"link_intro": "你的个性化 Nstart 链接",
 		"button_copy": "复制链接",
+		"button_copied": "已复制！",
 		"error1": "这个配置文件已经被添加",
 		"error2": "获取配置文件信息失败",
 		"error3": "无法解析 NIP-05 地址",

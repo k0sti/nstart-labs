@@ -24,6 +24,8 @@
 	let isLoading = false;
 	let errorMessage = '';
 	let generatedUrl = '';
+	let copyButtonText = t('wizard.button_copy');
+	let isCopied = false;
 
 	onMount(() => {
 		selectedLanguage = $currentLanguage;
@@ -200,6 +202,14 @@
 
 	function copyToClipboard() {
 		navigator.clipboard.writeText(generatedUrl);
+
+		isCopied = true;
+		copyButtonText = t('wizard.button_copied');
+
+		setTimeout(() => {
+			isCopied = false;
+			copyButtonText = t('wizard.button_copy');
+		}, 2000);
 	}
 
 	function handleKeyPress(event: KeyboardEvent) {
@@ -372,7 +382,7 @@
 						class="inline-flex items-center justify-center rounded bg-accent px-8 py-3 text-[1.3rem] text-white"
 						title="Copy to clipboard"
 					>
-						Copy URL
+						{copyButtonText}
 						<div class="ml-4 mr-2">
 							<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path

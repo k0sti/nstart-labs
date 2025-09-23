@@ -149,6 +149,7 @@
 		"button_link": "Créer le lien",
 		"link_intro": "Votre URL personnalisée Nstart",
 		"button_copy": "Copier l'URL",
+		"button_copied": "Copié !",
 		"error1": "Ce profil a déjà été ajouté",
 		"error2": "Échec de récupération des informations du profil",
 		"error3": "Impossible de résoudre l'adresse NIP-05",
