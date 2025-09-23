@@ -98,7 +98,7 @@
 
 {#if !isModal}
 	<div class="absolute right-4 top-4 z-50 flex items-center gap-3">
-		{#if $page.route.id === '/[lang]'}
+		{#if $page.route.id === '/[lang]' || $page.route.id === '/[lang]/wizard'}
 			<LanguageSelector
 				{availableLanguages}
 				currentLanguage={$currentLanguage}
