@@ -142,6 +142,7 @@
 		"title": "Maak je Nstart-URL",
 		"intro": "Deze pagina stelt je in staat om een gepersonaliseerde Nstart-link te verkrijgen waarmee andere gebruikers een account kunnen aanmaken, met een vooraf ingestelde taal en een gepersonaliseerde volglijst",
 		"label_lang": "Wizard-taal",
+		"label_nickname": "Je naam of bijnaam - Optioneel",
 		"label_contact": "Contact toevoegen aan volglijst",
 		"button_contact": "Contact toevoegen",
 		"button_working": "Zoeken...",

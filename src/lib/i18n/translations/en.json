@@ -142,6 +142,7 @@
 		"title": "Create your Nstart URL",
 		"intro": "This page allows you to obtain a personalized Nstart link that enables other users to create an account, with a preset language and a personalized list of followers",
 		"label_lang": "Wizard language",
+		"label_nickname": "Your (nick)name - Optional",
 		"label_contact": "Contact to add to the following list",
 		"button_contact": "Add contact",
 		"button_working": "Searching...",

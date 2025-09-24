@@ -142,6 +142,7 @@
 		"title": "Erstelle deine Nstart-URL",
 		"intro": "Diese Seite ermöglicht es dir, einen personalisierten Nstart-Link zu erhalten, der es anderen Nutzern ermöglicht, ein Konto zu erstellen, mit einer voreingestellten Sprache und einer personalisierten Folge-Liste",
 		"label_lang": "Assistent-Sprache",
+		"label_nickname": "Ihr (Spitz)name - Optional",
 		"label_contact": "Kontakt zur Folge-Liste hinzufügen",
 		"button_contact": "Kontakt hinzufügen",
 		"button_working": "Suche...",

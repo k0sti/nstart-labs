@@ -25,6 +25,8 @@
 
 	const analytics = new WizardAnalyticsClient();
 
+	let sharingReferrerName = '';
+
 	onMount(async () => {
 		const params = new URLSearchParams(window.location.search);
 
@@ -99,25 +101,29 @@
 			$skipFollow = true;
 		}
 
+		sharingReferrerName = params.get('rn') || '';
+
 		let currentLang: string;
 		currentLanguage.subscribe((value) => {
 			currentLang = value;
 		});
 
-		analytics.initSession({
-			languageCode: currentLang!,
-			appType: $callingAppType,
-			appName: $callingAppName,
-			accentColor: $accent,
-			themeMode: $theme,
-			forceBunker: $forceBunker,
-			skipBunker: $skipBunker,
-			skipFollow: $skipFollow,
-			avoidNsec: $avoidNsec,
-			avoidNcryptsec: $avoidNcryptsec,
-			customReadRelays: $readRelays,
-			customWriteRelays: $writeRelays
-		}).catch(err => console.warn('Analytics initSession failed:', err));
+		analytics
+			.initSession({
+				languageCode: currentLang!,
+				appType: $callingAppType,
+				appName: $callingAppName,
+				accentColor: $accent,
+				themeMode: $theme,
+				forceBunker: $forceBunker,
+				skipBunker: $skipBunker,
+				skipFollow: $skipFollow,
+				avoidNsec: $avoidNsec,
+				avoidNcryptsec: $avoidNcryptsec,
+				customReadRelays: $readRelays,
+				customWriteRelays: $writeRelays
+			})
+			.catch((err) => console.warn('Analytics initSession failed:', err));
 	});
 </script>
 
@@ -163,7 +169,7 @@
 								class="mb-8 animate-fade2 border-l-[0.9rem] border-accent pl-4 opacity-0 sm:-ml-8"
 								style="animation-delay: 0.2s;"
 							>
-								<h1 class="font-bold">
+								<h1 class="relative inline-block font-bold">
 									{#if $currentLanguage === 'ja'}
 										<div
 											class="break-words text-[3.5rem] leading-[1em] sm:h-auto sm:text-[6rem]"
@@ -189,6 +195,13 @@
 										>
 											<span class="text-neutral-500 dark:text-neutral-400">{t('home.title2')}</span>
 											<span class="text-accent">{t('home.title3')}</span>
+										</div>
+									{/if}
+									{#if sharingReferrerName}
+										<div
+											class="animate-fadeShake mt-3 inline-block -rotate-[5deg] rounded bg-black px-4 py-2 text-white sm:absolute sm:-bottom-5 sm:-right-2 sm:mt-0"
+										>
+											by <span class="text-xl">{sharingReferrerName}</span>
 										</div>
 									{/if}
 								</h1>

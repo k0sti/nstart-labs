@@ -19,6 +19,7 @@
 	const pool = new SimplePool();
 
 	let selectedLanguage = 'en';
+	let nickname = '';
 	let npubInput = '';
 	let addedProfiles: Profile[] = [];
 	let isLoading = false;
@@ -188,12 +189,23 @@
 		const baseUrl = `${$page.url.origin}/${selectedLanguage}`;
 
 		if (addedProfiles.length === 0) {
-			generatedUrl = baseUrl;
+			const params = new URLSearchParams();
+			if (nickname.trim()) {
+				params.set('rn', nickname.trim());
+			}
+			generatedUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
 			return;
 		}
 
+		const params = new URLSearchParams();
 		const npubList = addedProfiles.map((profile) => profile.npub).join(',');
-		generatedUrl = `${baseUrl}?s=${npubList}`;
+		params.set('s', npubList);
+
+		if (nickname.trim()) {
+			params.set('rn', nickname.trim());
+		}
+
+		generatedUrl = `${baseUrl}?${params.toString()}`;
 	}
 
 	function resetUrl() {
@@ -253,6 +265,23 @@
 					<option value={language.code}>{language.name}</option>
 				{/each}
 			</select>
+		</div>
+
+		<!-- Nickname Input -->
+		<div class="mb-6 animate-fade1">
+			<label
+				for="nickname-input"
+				class="mb-2 block font-medium text-neutral-700 dark:text-neutral-300"
+			>
+				{t('wizard.label_nickname')}
+			</label>
+			<input
+				id="nickname-input"
+				type="text"
+				bind:value={nickname}
+				placeholder="Bob..."
+				class="w-full rounded border border-neutral-300 bg-white px-4 py-3 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+			/>
 		</div>
 
 		<!-- Added Profiles List -->

@@ -141,6 +141,7 @@
 		"title": "Utwórz swój URL Nstart",
 		"intro": "Ta strona pozwala uzyskać spersonalizowany link Nstart, który umożliwia innym użytkownikom utworzenie konta z predefiniowanym językiem i spersonalizowaną listą obserwowanych",
 		"label_lang": "Język kreatora",
+		"label_nickname": "Twoja nazwa lub pseudonim - Opcjonalne",
 		"label_contact": "Kontakt do dodania do listy obserwowanych",
 		"button_contact": "Dodaj kontakt",
 		"button_working": "Wyszukiwanie...",

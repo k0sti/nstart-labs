@@ -134,6 +134,7 @@
 		"title": "Crie sua URL do Nstart",
 		"intro": "Esta página permite obter um link personalizado do Nstart que permite a outros usuários criar uma conta, com um idioma pré-definido e uma lista personalizada de seguidos",
 		"label_lang": "Idioma do assistente",
+		"label_nickname": "Seu nome ou apelido - Opcional",
 		"label_contact": "Contato para adicionar à lista de seguidos",
 		"button_contact": "Adicionar contato",
 		"button_working": "Procurando...",

@@ -142,6 +142,7 @@
 		"title": "创建你的 Nstart 链接",
 		"intro": "这个页面可以让你获取一个个性化的 Nstart 链接，允许其他用户创建账户，带有预设的语言和个性化的关注列表",
 		"label_lang": "向导语言",
+		"label_nickname": "你的姓名或昵称 - 可选",
 		"label_contact": "添加到关注列表的联系人",
 		"button_contact": "添加联系人",
 		"button_working": "搜索中...",

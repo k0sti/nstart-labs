@@ -142,6 +142,7 @@
 		"title": "Ustvari svoj Nstart URL",
 		"intro": "Ta stran vam omogoča pridobiti personaliziran link Nstart, ki drugim uporabnikom omogoča ustvariti račun z nastavljenim jezikom in personalizirani seznam sledilcev",
 		"label_lang": "Jezik čarovnika",
+		"label_nickname": "Vaše ime ali vzdevek - Opcijsko",
 		"label_contact": "Kontakt za dodajanje v seznam sledilcev",
 		"button_contact": "Dodaj kontakt",
 		"button_working": "Iščem...",
