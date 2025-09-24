@@ -42,7 +42,7 @@
 			encrypt = true;
 		}
 
-		await analytics.startStep('download');
+		analytics.startStep('download').catch(err => console.warn('Analytics startStep failed:', err));
 	});
 
 	function downloadBackup() {
@@ -63,9 +63,9 @@
 	async function navigateContinue() {
 		$backupDownloaded = true;
 
-		await analytics.completeStep({
+		analytics.completeStep({
 			type: $ncryptsec ? 'ncryptsec' : 'nsec'
-		});
+		}).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		goto(`/${$currentLanguage}/email`);
 	}

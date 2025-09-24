@@ -49,7 +49,7 @@
 			return;
 		}
 
-		await analytics.startStep('email');
+		analytics.startStep('email').catch(err => console.warn('Analytics startStep failed:', err));
 	});
 
 	async function send(ev: MouseEvent) {
@@ -74,7 +74,7 @@
 		clearInterval(intv);
 		activationProgress = 100;
 
-		await analytics.completeStep({});
+		analytics.completeStep({}).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		setTimeout(() => {
 			goto(`/${$currentLanguage}/bunker`);
@@ -82,7 +82,7 @@
 	}
 
 	async function navigateContinue() {
-		await analytics.completeStep({}, true, $skipBunker && $skipFollow);
+		analytics.completeStep({}, true, $skipBunker && $skipFollow).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		if ($skipBunker) {
 			if ($skipFollow) {

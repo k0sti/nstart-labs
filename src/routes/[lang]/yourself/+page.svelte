@@ -30,7 +30,7 @@
 			mineEmail($sk, $pk);
 		}
 
-		await analytics.startStep('yourself');
+		analytics.startStep('yourself').catch(err => console.warn('Analytics startStep failed:', err));
 	});
 
 	function triggerFileInput() {
@@ -156,11 +156,11 @@
 		});
 		publishRelayList($sk, $pk);
 
-		await analytics.completeStep({
+		analytics.completeStep({
 			picture: $picture != '',
 			about: $about != '',
 			website: $website != ''
-		});
+		}).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		goto(`/${$currentLanguage}/download`);
 	}

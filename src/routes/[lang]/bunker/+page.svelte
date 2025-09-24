@@ -118,7 +118,7 @@
 			return;
 		}
 
-		await analytics.startStep('bunker');
+		analytics.startStep('bunker').catch(err => console.warn('Analytics startStep failed:', err));
 	});
 
 	async function activate(event: Event) {
@@ -189,7 +189,8 @@
 	}
 
 	async function navigateContinue() {
-		await analytics.completeStep(
+		// Complete analytics step - don't await to prevent blocking on server errors
+		analytics.completeStep(
 			activateBunker
 				? {
 						signers: selectedSigners.size,
@@ -198,7 +199,7 @@
 				: undefined,
 			!activateBunker,
 			$skipFollow
-		);
+		).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		if ($skipFollow) {
 			if ($callingAppCode) {

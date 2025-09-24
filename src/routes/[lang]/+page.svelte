@@ -104,7 +104,7 @@
 			currentLang = value;
 		});
 
-		await analytics.initSession({
+		analytics.initSession({
 			languageCode: currentLang!,
 			appType: $callingAppType,
 			appName: $callingAppName,
@@ -117,9 +117,7 @@
 			avoidNcryptsec: $avoidNcryptsec,
 			customReadRelays: $readRelays,
 			customWriteRelays: $writeRelays
-		});
-
-		console.log('$callingAppName', $callingAppName);
+		}).catch(err => console.warn('Analytics initSession failed:', err));
 	});
 </script>
 

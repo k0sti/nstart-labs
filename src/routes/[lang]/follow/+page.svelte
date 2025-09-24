@@ -105,7 +105,7 @@
 		}
 
 		suggestedUsers = await buildSuggestionList();
-		await analytics.startStep('follow');
+		analytics.startStep('follow').catch(err => console.warn('Analytics startStep failed:', err));
 	});
 
 	async function buildSuggestionList(): Promise<any[]> {
@@ -180,7 +180,7 @@
 		activationProgress = 100;
 		clearInterval(intv);
 
-		await analytics.completeStep(
+		analytics.completeStep(
 			selectedUsers.size > 0
 				? {
 						selected: selectedUsers.size
@@ -188,7 +188,7 @@
 				: undefined,
 			selectedUsers.size == 0,
 			true
-		);
+		).catch(err => console.warn('Analytics completeStep failed:', err));
 
 		setTimeout(() => {
 			if ($callingAppCode) {
