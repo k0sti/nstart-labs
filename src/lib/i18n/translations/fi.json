@@ -106,7 +106,7 @@
 		"title1": "SEURAA",
 		"title2": "JOTAKUTA",
 		"side1": "Mitä ajattelet siitä, että seuraisit joitain mielenkiintoisia profiileja? Tarjoamme sinulle mahdollisuuden kopioida jonkin Nostr-käyttäjän koko seurattavien listan, jotta voit aloittaa Nostr-matkasi syötteellä, joka on täynnä jo kuratoitujen henkilöiden viestejä.",
-		"side2": "Voit myöhemmin seurata lisää ihmisiä tai lopettaa joidenkin seuraamisen; Nostrissa sinä hallitset mitä haluat nähdä, ei hämäriä ja petollisia algoritmeja, ei pakotuksia.",
+		"side2": "Voit myöhemmin seurata lisää ihmisiä tai lopettaa joidenkin seuraamisen; Nostrissa sinä hallitset mitä haluat nähdä, ei hämäriä ja petollisia algoritmeja, ei pakoitteita.",
 		"text1": "Näe samat asiat, joita nämä Nostr-käyttäjät näkevät syötteessään:",
 		"button_finish": "Valmis",
 		"button_finishing": "Viimeistellään..."
@@ -135,7 +135,7 @@
 
 	"confirmation_email": {
 		"subject": "Nostr-tilisi",
-		"body": "Hei!\n\nTämä on Nostr npub-tunnisteesi:\n{$1}\n\nJa tämä on salattu Nostr-avaimesi:\n{$2}\n\nMuista tallentaa valitsemasi salasana turvalliseen paikkaan!\n\nTervetuloa Nostriin :)\n\nPS: Tämä sähköpostiosoite ei hyväksy vastauksia, tuen pyytämiseksi merkitse https://njump.me/dtonon.com tai https://njump.me/fiatjaf.com Nostrissa"
+		"body": "Hei!\n\nTämä on Nostr npub-tunnisteesi:\n{$1}\n\nJa tämä on salattu Nostr-avaimesi:\n{$2}\n\nMuista tallentaa valitsemasi salasana turvalliseen paikkaan!\n\nTervetuloa Nostriin :)\n\nPS: Tämä sähköpostiosoite ei hyväksy vastauksia, tuen pyytämiseksi tägää https://njump.me/dtonon.com tai https://njump.me/fiatjaf.com Nostrissa"
 	},
 
 	"wizard": {
